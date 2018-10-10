@@ -4,7 +4,7 @@
 
 void print_list(struct node * node) {
     struct node * temp = node;
-    if(node -> next == NULL) {
+    if(temp -> next == NULL) {
         printf("[%d] -> [NULL]\n", temp -> i);
         return;
     } else {
@@ -13,21 +13,40 @@ void print_list(struct node * node) {
     }
 }
 
-struct node * insert_front(struct * node, int x) {
-
+struct node * create(int i) {
+    struct node * temp;
+    temp = malloc(sizeof(struct node));
+    temp -> i = i;
+    temp -> next = NULL;
+    return temp;
 }
 
-// adsf
+struct node * insert_front(struct node * node, int x) {
+    struct node * temp = node;
+    if(temp -> next == NULL) {
+        temp -> next = create(x);
+        return temp;
+    } else {
+        return(insert_front(temp -> next, x));
+    }
+}
+
+struct node * free_list(struct node * node) {
+    if (node -> next == NULL) {
+        free(node);
+    } else {
+        free_list(node -> next);
+        free(node);
+    }
+}
+
 int main() {
-    struct node foo, moo, too, coo;
-    foo.i = 2;
-    foo.next = &moo;
-    moo.i = 1;
-    moo.next = &too;
-    too.i = 1232;
-    too.next = &coo;
-    coo.i = 6712;
-    coo.next = NULL;
-    print_list(&foo);
+    struct node * head = create(123);
+    int i = 4;
+    while(i--) {
+        insert_front(head, 20);
+        print_list(head);
+    } struct node * temp = free_list(head);
+    print_list(&temp);
 
 }
