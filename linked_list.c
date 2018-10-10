@@ -39,14 +39,3 @@ struct node * free_list(struct node * node) {
         free(node);
     }
 }
-
-int main() {
-    struct node * head = create(123);
-    int i = 4;
-    while(i--) {
-        insert_front(head, 20);
-        print_list(head);
-    } struct node * temp = free_list(head);
-    print_list(&temp);
-
-}

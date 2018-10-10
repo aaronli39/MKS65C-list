@@ -1,5 +1,5 @@
-all: linked_list.o
-	@gcc linked_list.o
+all: test.o linked_list.o
+	@gcc test.o
 
 run:
 	@./a.out
@@ -7,5 +7,8 @@ run:
 clear:
 	@rm *.o a.out
 
-gen: linked_list.c
+test.o: test.c
+	@gcc -c test.c
+
+linked_list.o : linked_list.c
 	@gcc -c linked_list.c
