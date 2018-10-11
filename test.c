@@ -14,8 +14,11 @@ int main() {
         print_list(head);
     }
     printf("================ TESTING free_list ================\n");
-    printf("--> free_list worked because the first node is a null element so there <--\n");
-    printf("--> is a segmentation fault error since the previous elements are gone. <--\n\n");
+    printf("Before freeing: \n");
+    print_list(head);
+    // printf("--> free_list worked because the first node is a null element so there <--\n");
+    // printf("--> is a segmentation fault error since the previous elements are gone. <--\n\n");
+    printf("After freeing: \n");
     struct node * temp = free_list(head);
     print_list(temp);
 

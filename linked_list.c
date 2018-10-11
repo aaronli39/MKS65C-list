@@ -5,12 +5,16 @@
 // prints the linked list of the specified node element
 void print_list(struct node * node) {
     struct node * temp = node;
-    if(temp -> next == NULL) {
-        printf("[%d] -> [NULL]\n", temp -> i);
-        return;
+    if(! temp) {
+        printf("[]\n");
     } else {
-        printf("[%d] -> ", temp -> i);
-        return(print_list(temp -> next));
+        if(temp -> next == NULL) {
+            printf("[%d] -> [NULL]\n", temp -> i);
+            return;
+        } else {
+            printf("[%d] -> ", temp -> i);
+            return(print_list(temp -> next));
+        }
     }
 }
 
